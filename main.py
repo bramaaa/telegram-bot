@@ -9,13 +9,12 @@ from datetime import datetime
 
 
 TOKEN = "8319404629:AAGf6lGu4hQ_jteb0tq_5w02DSgzb1q2KLY"
-ADMIN_PASSWORD = 568130284183
 DATA_FILE = "users.json"
 TIMEZONE = "Europe/Kyiv"
 
 
 bot = telebot.TeleBot(TOKEN)
-admins = set()
+admins = [5540538227, 5039997415]
 
 
 def load_users():
@@ -62,12 +61,16 @@ def start(message):
 
 @bot.message_handler(commands=["admin"])
 def admin_login(message):
-    msg = bot.send_message(message.chat.id, "🔐 Введи пароль адміністратора:")
-    bot.register_next_step_handler(msg, check_password)
+    if message.chat.id in admins:
+        bot.send_message(message.chat.id, "Вхід успішний")
+    else:
+        bot.send_message(message.chat.id, "Ви не адмін")
+        
+    
 
 
 def check_password(message):
-    if message.text == ADMIN_PASSWORD:
+    if message.chat.id in admins:
         admins.add(message.chat.id)
         bot.send_message(
             message.chat.id,
