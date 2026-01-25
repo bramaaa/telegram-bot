@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 
 
-TOKEN = "8548025603:AAHMZH14AHS0aAHI4fOIvby2_0kneknM-G0"
+TOKEN = "8319404629:AAGf6lGu4hQ_jteb0tq_5w02DSgzb1q2KLY"
 ADMIN_PASSWORD = 568130284183
 DATA_FILE = "users.json"
 TIMEZONE = "Europe/Kyiv"
