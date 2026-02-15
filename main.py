@@ -11,7 +11,7 @@ from datetime import datetime
 # =====================
 
 TOKEN = "8319404629:AAGf6lGu4hQ_jteb0tq_5w02DSgzb1q2KLY"
-ADMIN_PASSWORD = "1234"
+ADMIN_PASSWORD = "01121985"
 DATA_FILE = "users.json"
 TIMEZONE = "Europe/Kyiv"
 
