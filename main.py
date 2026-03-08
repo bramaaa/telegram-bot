@@ -5,13 +5,14 @@ import pytz
 import threading
 import time
 from datetime import datetime
+import os
 
 # =====================
 # НАЛАШТУВАННЯ
 # =====================
 
 TOKEN = "8319404629:AAGf6lGu4hQ_jteb0tq_5w02DSgzb1q2KLY"
-ADMIN_PASSWORD = "01121985"
+ADMIN_PASSWORD = "01121981"
 DATA_FILE = "users.json"
 TIMEZONE = "Europe/Kyiv"
 
@@ -24,11 +25,12 @@ admins = set()
 # =====================
 
 def load_users():
-    try:
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except:
-        return {}
+    if not os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump({}, f)
+
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def save_users(data):
